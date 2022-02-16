@@ -1,0 +1,13 @@
+{
+  "parts": [
+    {
+      "name": "ep_dynamic_default_content",
+      "hooks": {
+        "init_ep_dynamic_default_content": "",
+        "loadSettings": "",
+        "padDefaultContent": "",
+        "shutdown": ""
+      }
+    }
+  ]
+}

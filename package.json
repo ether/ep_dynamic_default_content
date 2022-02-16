@@ -1,0 +1,60 @@
+{
+  "name": "ep_dynamic_default_content",
+  "version": "1.0.0",
+  "description": "Etherpad plugin to dynamically generate a pad's initial content.",
+  "type": "module",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "exports": {
+    ".": "./dist/index.cjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "/dist/index.cjs",
+    "/dist/index.cjs.map",
+    "/dist/index.d.ts",
+    "/ep.json"
+  ],
+  "engines": {
+    "node": ">=12.17.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prepare": "microbundle --format cjs --target node",
+    "test": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ether/ep_dynamic_default_content.git"
+  },
+  "keywords": [
+    "etherpad",
+    "ep",
+    "plugin"
+  ],
+  "author": "Richard Hansen <rhansen@rhansen.org>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ether/ep_dynamic_default_content/issues"
+  },
+  "homepage": "https://github.com/ether/ep_dynamic_default_content#readme",
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-etherpad": "^3.0.1",
+    "microbundle": "^0.14.2",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "ajv": "^8.10.0",
+    "mariadb": "^2.5.6"
+  },
+  "peerDependencies": {
+    "ep_etherpad-lite": "^1.9.0"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://etherpad.org/"
+  }
+}
