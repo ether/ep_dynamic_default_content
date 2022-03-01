@@ -6,10 +6,10 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "outDir": "./dist",
+    "strict": true,
     "target": "ESNext"
   },
   "include": [
     "src/**/*"
-  ],
-  "strict": true
+  ]
 }

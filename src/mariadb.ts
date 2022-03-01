@@ -1,6 +1,6 @@
 import {type JTDDataType} from 'ajv/dist/jtd';
 import {logger, type Context} from './common';
-import {createPool, type Pool} from 'mariadb';
+import {createPool, type Pool, type PoolConfig} from 'mariadb';
 
 export const schema = {
   properties: {
@@ -35,7 +35,7 @@ export class Handler {
   readonly #sql: string;
 
   constructor({config, sql}: Settings) {
-    this.#pool = createPool(config);
+    this.#pool = createPool(config as string | PoolConfig);
     this.#sql = sql;
   }
 
