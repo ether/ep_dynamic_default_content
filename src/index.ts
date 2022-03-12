@@ -37,15 +37,22 @@ export const loadSettings = async (hookName: string, ctx: LoadSettingsContext): 
     logger.error('Invalid settings. Detailed validation errors:', validSettings.errors);
     return;
   }
-  switch (settings.type) {
-    case 'mariadb': handler = new mariadb.Handler(settings.mariadb); break;
-    case 'javascript': handler = new javascript.Handler(settings.javascript); break;
-    default:
-      ((exhaustivenessCheck: never) => {})(settings);
-      throw new Error('assertion failure');
+  try {
+    let newHandler;
+    switch (settings.type) {
+      case 'mariadb': newHandler = new mariadb.Handler(settings.mariadb); break;
+      case 'javascript': newHandler = new javascript.Handler(settings.javascript); break;
+      default:
+        ((exhaustivenessCheck: never) => {})(settings);
+        throw new Error('assertion failure');
+    }
+    await newHandler.init();
+    handler = newHandler;
+    logger.info('configured');
+  } catch (err) {
+    const msg = err instanceof Error && typeof err.stack === 'string' ? err.stack : String(err);
+    logger.error(`configuration failed: ${msg}`);
   }
-  await handler.init();
-  logger.info('configured');
 };
 
 export const padDefaultContent = async (hookName: string, ctx: Context): Promise<void> => {
