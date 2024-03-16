@@ -11,7 +11,7 @@ export const schema = {
 
 type Settings = JTDDataType<typeof schema>;
 
-type QueryReturn = Awaited<ReturnType<Pool['query']>> &{
+type QueryReturn = Awaited<ReturnType<Pool['query']>> & {
     meta: unknown[];
 };
 type Results = [string][] & {meta: unknown[]};
