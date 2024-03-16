@@ -1,6 +1,6 @@
 {
   "name": "ep_dynamic_default_content",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Etherpad plugin to dynamically generate a pad's initial content.",
   "type": "module",
   "source": "./src/index.ts",
