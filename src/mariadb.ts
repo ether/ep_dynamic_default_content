@@ -11,7 +11,9 @@ export const schema = {
 
 type Settings = JTDDataType<typeof schema>;
 
-type QueryReturn = Awaited<ReturnType<Pool['query']>>;
+type QueryReturn = Awaited<ReturnType<Pool['query']>> &{
+    meta: unknown[];
+};
 type Results = [string][] & {meta: unknown[]};
 const isResults = (rows: QueryReturn): rows is Results => {
   /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access -- Pool.query's return value is not well typed, so we have to silence ESLint. :( */
