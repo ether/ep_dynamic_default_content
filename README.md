@@ -9,7 +9,7 @@ Etherpad plugin to dynamically generate a pad's initial content.
 From the Etherpad working directory, run:
 
 ```shell
-npm install --no-save --legacy-peer-deps ep_dynamic_default_content
+pnpm run plugins install ep_dynamic_default_content
 ```
 
 Or, install from Etherpad's `/admin/plugins` page.
