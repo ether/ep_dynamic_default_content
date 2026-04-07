@@ -43,7 +43,7 @@
   "devDependencies": {
     "eslint": "^8.57.0",
     "eslint-config-etherpad": "^4.0.4",
-    "microbundle": "^0.15.0",
+    "microbundle": "^0.15.1",
     "typescript": "^6.0.2"
   },
   "dependencies": {
