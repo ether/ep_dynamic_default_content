@@ -1,5 +1,5 @@
-import {type JTDDataType} from 'ajv/dist/jtd';
-import {type Context, type Optional} from './common';
+import type {JTDDataType} from 'ajv/dist/jtd';
+import type {Context, Optional} from './common';
 
 export const schema = {
   properties: {
