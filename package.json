@@ -53,6 +53,11 @@
   "overrides": {
     "picomatch": "2.3.1"
   },
+  "pnpm": {
+    "overrides": {
+      "picomatch": "2.3.1"
+    }
+  },
   "funding": {
     "type": "individual",
     "url": "https://etherpad.org/"
