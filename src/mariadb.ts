@@ -1,6 +1,8 @@
-import {JTDDataType} from 'ajv/dist/jtd';
-import {logger, Context} from './common';
-import {createPool, Pool, PoolConfig} from 'mariadb';
+import type {JTDDataType} from 'ajv/dist/jtd';
+import {logger} from './common';
+import type {Context} from './common';
+import {createPool} from 'mariadb';
+import type {Pool, PoolConfig} from 'mariadb';
 
 export const schema = {
   properties: {

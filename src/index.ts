@@ -1,5 +1,7 @@
-import Ajv, {JTDDataType} from 'ajv/dist/jtd';
-import {isContext, logger, setLogger, Awaitable, Context, Logger} from './common';
+import Ajv from 'ajv/dist/jtd';
+import type {JTDDataType} from 'ajv/dist/jtd';
+import {isContext, logger, setLogger} from './common';
+import type {Awaitable, Context, Logger} from './common';
 import * as mariadb from './mariadb';
 import * as javascript from './javascript';
 
