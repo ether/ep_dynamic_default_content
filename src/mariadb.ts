@@ -1,8 +1,6 @@
 import type {JTDDataType} from 'ajv/dist/jtd';
-import {logger} from './common';
-import type {Context} from './common';
-import {createPool} from 'mariadb';
-import type {Pool, PoolConfig} from 'mariadb';
+import {logger, type Context} from './common';
+import {createPool, type Pool, type PoolConfig} from 'mariadb';
 
 export const schema = {
   properties: {
@@ -13,6 +11,10 @@ export const schema = {
 
 type Settings = JTDDataType<typeof schema>;
 
+// Pool.query's return value is typed as `unknown`, so this intersection is redundant today, but
+// keeping it preserves the intent (whatever query() returns, plus `meta`) and keeps `unknown`
+// assignable to QueryReturn if mariadb ever types query() properly.
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 type QueryReturn = Awaited<ReturnType<Pool['query']>> & {
     meta: unknown[];
 };
