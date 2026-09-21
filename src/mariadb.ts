@@ -1,8 +1,6 @@
 import type {JTDDataType} from 'ajv/dist/jtd';
-import {logger} from './common';
-import type {Context} from './common';
-import {createPool} from 'mariadb';
-import type {Pool, PoolConfig} from 'mariadb';
+import {logger, type Context} from './common';
+import {createPool, type Pool, type PoolConfig} from 'mariadb';
 
 export const schema = {
   properties: {
@@ -13,9 +11,10 @@ export const schema = {
 
 type Settings = JTDDataType<typeof schema>;
 
-type QueryReturn = Awaited<ReturnType<Pool['query']>> & {
-    meta: unknown[];
-};
+// Pool.query() is typed as returning `any`, so `Awaited<ReturnType<Pool['query']>>` adds nothing
+// to the intersection and @typescript-eslint/no-redundant-type-constituents rightly flags it.
+// Spell out the only shape this module actually relies on.
+type QueryReturn = {meta: unknown[]};
 type Results = [string][] & {meta: unknown[]};
 const isResults = (rows: QueryReturn): rows is Results => {
   /* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access -- Pool.query's return value is not well typed, so we have to silence ESLint. :( */
