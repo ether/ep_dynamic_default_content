@@ -54,12 +54,6 @@
     "picomatch": "2.3.1",
     "serialize-javascript": "^7.0.3"
   },
-  "pnpm": {
-    "overrides": {
-      "picomatch": "2.3.1",
-      "serialize-javascript": "^7.0.3"
-    }
-  },
   "funding": {
     "type": "individual",
     "url": "https://etherpad.org/"
